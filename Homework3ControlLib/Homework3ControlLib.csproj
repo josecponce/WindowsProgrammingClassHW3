@@ -60,6 +60,12 @@
     <Compile Include="CourseInfo.Designer.cs">
       <DependentUpon>CourseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="OathUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OathUserControl.Designer.cs">
+      <DependentUpon>OathUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
