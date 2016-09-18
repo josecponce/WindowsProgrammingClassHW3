@@ -35,12 +35,14 @@ namespace Homework3 {
         private void ellipticChildToolStripMenuItem_Click(object sender, EventArgs e) {
             EllipticForm form = new EllipticForm(preferences.EllipseWidth, 
                 preferences.EllipseRatio);
+            form.MdiParent = this;            
             form.Show();
         }
 
         private void rectangularChildToolStripMenuItem_Click(object sender, EventArgs e) {
             RectangularForm form = new RectangularForm(
                 preferences.RectangleHeight, preferences.RectangeRatio);
+            form.MdiParent = this;
             form.Show();
         }
 

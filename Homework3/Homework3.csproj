@@ -172,15 +172,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\w-brand.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iis.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\verisign.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\download.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
