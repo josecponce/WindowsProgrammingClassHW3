@@ -104,6 +104,9 @@
       <DependentUpon>RectangularForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UnityConfig.cs" />
+    <EmbeddedResource Include="Dialogs\OathDialog\OathDialog.resx">
+      <DependentUpon>OathDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EllipticForm.resx">
       <DependentUpon>EllipticForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +127,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms\RectangularForm.resx">
       <DependentUpon>RectangularForm.cs</DependentUpon>
@@ -147,6 +151,18 @@
       <Project>{43F5C23A-E612-4A2E-88AD-8F83DA540CA0}</Project>
       <Name>Homework3ControlLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\w-brand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\verisign.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

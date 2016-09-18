@@ -23,9 +23,21 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // OathDialog
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Homework3.Properties.Resources.download;
+            this.ClientSize = new System.Drawing.Size(278, 296);
+            this.MaximumSize = new System.Drawing.Size(296, 343);
+            this.MinimumSize = new System.Drawing.Size(296, 343);
+            this.Name = "OathDialog";
             this.Text = "OathDialog";
+            this.Load += new System.EventHandler(this.OathDialog_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
