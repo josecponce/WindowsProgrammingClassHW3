@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Homework3.Dialogs.LoginDialog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +14,13 @@ namespace Homework3 {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            DialogResult result = DialogResult.None;
+            using (var loginDialog = new LoginDialog()) {
+                result = loginDialog.ShowDialog();
+            }            
+            if (result == DialogResult.Yes) {
+                Application.Run(new MainForm());
+            }            
         }
     }
 }

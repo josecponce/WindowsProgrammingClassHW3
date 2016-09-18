@@ -70,5 +70,17 @@ namespace Homework3.Properties {
                 this["RectangleRatio"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SkipConfirmation {
+            get {
+                return ((bool)(this["SkipConfirmation"]));
+            }
+            set {
+                this["SkipConfirmation"] = value;
+            }
+        }
     }
 }
