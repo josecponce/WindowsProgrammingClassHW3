@@ -1,4 +1,6 @@
-﻿using Microsoft.Practices.Unity;
+﻿using Homework3.Forms;
+using Homework3ControlLib;
+using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,7 @@ namespace Homework3 {
         private IUnityContainer container;
         private IPreferenceProvider preferenceProvider;
         private AppPreferences preferences;
+        private List<FormBase> openChildren = new List<FormBase>();
 
         public MainForm() {
             InitializeComponent();
@@ -35,15 +38,57 @@ namespace Homework3 {
         private void ellipticChildToolStripMenuItem_Click(object sender, EventArgs e) {
             EllipticForm form = new EllipticForm(preferences.EllipseWidth, 
                 preferences.EllipseRatio);
-            form.MdiParent = this;            
-            form.Show();
+            showChild(form);
         }
 
         private void rectangularChildToolStripMenuItem_Click(object sender, EventArgs e) {
             RectangularForm form = new RectangularForm(
                 preferences.RectangleHeight, preferences.RectangeRatio);
-            form.MdiParent = this;
-            form.Show();
+            showChild(form);
+        }
+        private void customChildToolStripMenuItem_Click(object sender, EventArgs e) {
+            CustomChildForm form = new CustomChildForm(
+                preferences.RectangleHeight, preferences.RectangeRatio);
+            showChild(form);
+        }
+        private void showChild(FormBase child) {
+            child.MdiParent = this;
+            child.GotFocus += Form_GotFocus;
+            child.BackColorChanged += Form_GotFocus;
+            child.FormClosed += Child_FormClosed;
+            child.Show();
+            openChildren.Add(child);
+            closeAllChildrenToolStripMenuItem.Visible = true;
+        }
+
+        private void Child_FormClosed(object sender, FormClosedEventArgs e) {
+            FormBase child = sender as FormBase;
+            openChildren.Remove(child);
+            if (openChildren.Count == 0) {
+                closeAllChildrenToolStripMenuItem.Visible = false;
+            }
+        }
+        private void closeAllChildrenToolStripMenuItem_Click(object sender, EventArgs e) {
+            foreach (var form in openChildren) {
+                form.Close();
+            }
+            openChildren.Clear();
+            closeAllChildrenToolStripMenuItem.Visible = false;
+        }
+
+        private void Form_GotFocus(object sender, EventArgs e) {
+            var rect = sender as RectangularForm;
+            if (rect != null) {
+                toolStripStatusLabel.Text = $"Rectangle {rect.BackColor.Name}";
+                return;
+            }
+            var ell = sender as EllipticForm;
+            if (ell != null) {
+                toolStripStatusLabel.Text = $"Ellipse {ell.BackColor.Name}";
+                return;
+            }
+            var custom = sender as CustomChildForm;
+            toolStripStatusLabel.Text = $"Custom {custom.BackColor.Name}";
         }
 
         private void openPreferencesModallyToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -62,6 +107,6 @@ namespace Homework3 {
             if (result == DialogResult.Cancel) {
                 e.Cancel = true;
             }
-        }
+        }        
     }
 }
