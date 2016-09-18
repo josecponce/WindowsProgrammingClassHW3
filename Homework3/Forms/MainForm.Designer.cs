@@ -51,7 +51,6 @@
             this.openPreferencesModallyToolStripMenuItem,
             this.openPreferencesModeleslyToolStripMenuItem});
             this.preferencesContextMenu.Name = "preferencesContextMenu";
-            this.preferencesContextMenu.OwnerItem = this.preferencesToolStripMenuItem;
             this.preferencesContextMenu.Size = new System.Drawing.Size(273, 56);
             // 
             // openPreferencesModallyToolStripMenuItem
@@ -121,7 +120,7 @@
             this.Controls.Add(this.mainMenu);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mainMenu;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(127, 112);
             this.Name = "MainForm";
             this.Text = "ShapeApp";
