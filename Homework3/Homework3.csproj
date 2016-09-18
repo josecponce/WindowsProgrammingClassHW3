@@ -62,52 +62,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppPreferences.cs" />
-    <Compile Include="EllipticForm.cs">
+    <Compile Include="Domain\AppPreferences.cs" />
+    <Compile Include="Forms\EllipticForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EllipticForm.Designer.cs">
+    <Compile Include="Forms\EllipticForm.Designer.cs">
       <DependentUpon>EllipticForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IPreferenceProvider.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Domain\IPreferenceProvider.cs" />
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PreferencesDialog.cs">
+    <Compile Include="Dialogs\PreferencesDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PreferencesDialog.Designer.cs">
+    <Compile Include="Dialogs\PreferencesDialog.Designer.cs">
       <DependentUpon>PreferencesDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="PreferencesDialogPreferenceProvider.cs" />
-    <Compile Include="PreferencesPanel.cs">
+    <Compile Include="Domain\PreferencesDialogPreferenceProvider.cs" />
+    <Compile Include="Controls\PreferencesPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PreferencesPanel.Designer.cs">
+    <Compile Include="Controls\PreferencesPanel.Designer.cs">
       <DependentUpon>PreferencesPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RectangularForm.cs">
+    <Compile Include="Forms\RectangularForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RectangularForm.Designer.cs">
+    <Compile Include="Forms\RectangularForm.Designer.cs">
       <DependentUpon>RectangularForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UnityConfig.cs" />
-    <EmbeddedResource Include="EllipticForm.resx">
+    <EmbeddedResource Include="Forms\EllipticForm.resx">
       <DependentUpon>EllipticForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreferencesDialog.resx">
+    <EmbeddedResource Include="Dialogs\PreferencesDialog.resx">
       <DependentUpon>PreferencesDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreferencesPanel.resx">
+    <EmbeddedResource Include="Controls\PreferencesPanel.resx">
       <DependentUpon>PreferencesPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -119,7 +119,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RectangularForm.resx">
+    <EmbeddedResource Include="Forms\RectangularForm.resx">
       <DependentUpon>RectangularForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
