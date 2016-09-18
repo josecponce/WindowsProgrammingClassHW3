@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesPanel));
             this.preferencePanel = new System.Windows.Forms.Panel();
             this.cancelButton = new System.Windows.Forms.Button();
             this.applyButton = new System.Windows.Forms.Button();
@@ -37,8 +38,12 @@
             this.rectangleHeightTextBox = new System.Windows.Forms.TextBox();
             this.RectangleHeighLabel = new System.Windows.Forms.Label();
             this.PreferencesErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.preferencesPanelToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.preferencesPanelHelpProvider = new System.Windows.Forms.HelpProvider();
+            this.preferencesInfoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.preferencePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PreferencesErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.preferencesInfoErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // preferencePanel
@@ -56,38 +61,42 @@
             this.preferencePanel.Controls.Add(this.rectangleHeightTextBox);
             this.preferencePanel.Controls.Add(this.RectangleHeighLabel);
             this.preferencePanel.Location = new System.Drawing.Point(0, 0);
-            this.preferencePanel.MaximumSize = new System.Drawing.Size(259, 250);
-            this.preferencePanel.MinimumSize = new System.Drawing.Size(259, 250);
+            this.preferencePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.preferencePanel.MaximumSize = new System.Drawing.Size(345, 308);
+            this.preferencePanel.MinimumSize = new System.Drawing.Size(345, 308);
             this.preferencePanel.Name = "preferencePanel";
-            this.preferencePanel.Size = new System.Drawing.Size(259, 250);
+            this.preferencePanel.Size = new System.Drawing.Size(345, 308);
             this.preferencePanel.TabIndex = 0;
             // 
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelButton.Location = new System.Drawing.Point(178, 205);
+            this.cancelButton.Location = new System.Drawing.Point(237, 252);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(52, 23);
+            this.cancelButton.Size = new System.Drawing.Size(69, 28);
             this.cancelButton.TabIndex = 14;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // applyButton
             // 
-            this.applyButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.applyButton.Location = new System.Drawing.Point(101, 205);
+            this.applyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.applyButton.Location = new System.Drawing.Point(135, 252);
+            this.applyButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.applyButton.Name = "applyButton";
-            this.applyButton.Size = new System.Drawing.Size(52, 23);
+            this.applyButton.Size = new System.Drawing.Size(69, 28);
             this.applyButton.TabIndex = 13;
             this.applyButton.Text = "Apply";
             this.applyButton.UseVisualStyleBackColor = true;
             // 
             // okButton
             // 
-            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.okButton.Location = new System.Drawing.Point(25, 205);
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.Location = new System.Drawing.Point(33, 252);
+            this.okButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(52, 23);
+            this.okButton.Size = new System.Drawing.Size(69, 28);
             this.okButton.TabIndex = 12;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
@@ -95,72 +104,97 @@
             // ellipseRatioTextBox
             // 
             this.ellipseRatioTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ellipseRatioTextBox.Location = new System.Drawing.Point(130, 159);
+            this.preferencesPanelHelpProvider.SetHelpString(this.ellipseRatioTextBox, "Please enter a decimal value between 0.5 and 5.Please enter a decimal value betwe" +
+        "en 0.5 and 5.");
+            this.ellipseRatioTextBox.Location = new System.Drawing.Point(173, 196);
+            this.ellipseRatioTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ellipseRatioTextBox.Name = "ellipseRatioTextBox";
-            this.ellipseRatioTextBox.Size = new System.Drawing.Size(100, 20);
+            this.preferencesPanelHelpProvider.SetShowHelp(this.ellipseRatioTextBox, true);
+            this.ellipseRatioTextBox.Size = new System.Drawing.Size(132, 22);
             this.ellipseRatioTextBox.TabIndex = 10;
+            this.preferencesPanelToolTip.SetToolTip(this.ellipseRatioTextBox, "Please enter a decimal value between 0.5 and 5.");
+            this.ellipseRatioTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.EllipseRatioTextBox_Validating);
             // 
             // ellipseRatioLabel
             // 
             this.ellipseRatioLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ellipseRatioLabel.AutoSize = true;
-            this.ellipseRatioLabel.Location = new System.Drawing.Point(22, 162);
+            this.ellipseRatioLabel.Location = new System.Drawing.Point(29, 199);
+            this.ellipseRatioLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ellipseRatioLabel.Name = "ellipseRatioLabel";
-            this.ellipseRatioLabel.Size = new System.Drawing.Size(65, 13);
+            this.ellipseRatioLabel.Size = new System.Drawing.Size(86, 17);
             this.ellipseRatioLabel.TabIndex = 9;
             this.ellipseRatioLabel.Text = "Ellipse Ratio";
             // 
             // ellipseWidthTextBox
             // 
             this.ellipseWidthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ellipseWidthTextBox.Location = new System.Drawing.Point(130, 113);
+            this.preferencesPanelHelpProvider.SetHelpString(this.ellipseWidthTextBox, "Please enter an integer between 50 and 1000.");
+            this.ellipseWidthTextBox.Location = new System.Drawing.Point(173, 139);
+            this.ellipseWidthTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ellipseWidthTextBox.Name = "ellipseWidthTextBox";
-            this.ellipseWidthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.preferencesPanelHelpProvider.SetShowHelp(this.ellipseWidthTextBox, true);
+            this.ellipseWidthTextBox.Size = new System.Drawing.Size(132, 22);
             this.ellipseWidthTextBox.TabIndex = 8;
+            this.preferencesPanelToolTip.SetToolTip(this.ellipseWidthTextBox, "Please enter an integer between 50 and 1000.");
+            this.ellipseWidthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.EllipseWidthTextBox_Validating);
             // 
             // ellipseWidthLabel
             // 
             this.ellipseWidthLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ellipseWidthLabel.AutoSize = true;
-            this.ellipseWidthLabel.Location = new System.Drawing.Point(22, 116);
+            this.ellipseWidthLabel.Location = new System.Drawing.Point(29, 143);
+            this.ellipseWidthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ellipseWidthLabel.Name = "ellipseWidthLabel";
-            this.ellipseWidthLabel.Size = new System.Drawing.Size(68, 13);
+            this.ellipseWidthLabel.Size = new System.Drawing.Size(89, 17);
             this.ellipseWidthLabel.TabIndex = 7;
             this.ellipseWidthLabel.Text = "Ellipse Width";
             // 
             // rectangleRatioTextBox
             // 
             this.rectangleRatioTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rectangleRatioTextBox.Location = new System.Drawing.Point(130, 70);
+            this.preferencesPanelHelpProvider.SetHelpString(this.rectangleRatioTextBox, "Please enter a decimal value between 0.5 and 5.");
+            this.rectangleRatioTextBox.Location = new System.Drawing.Point(173, 86);
+            this.rectangleRatioTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rectangleRatioTextBox.Name = "rectangleRatioTextBox";
-            this.rectangleRatioTextBox.Size = new System.Drawing.Size(100, 20);
+            this.preferencesPanelHelpProvider.SetShowHelp(this.rectangleRatioTextBox, true);
+            this.rectangleRatioTextBox.Size = new System.Drawing.Size(132, 22);
             this.rectangleRatioTextBox.TabIndex = 6;
+            this.preferencesPanelToolTip.SetToolTip(this.rectangleRatioTextBox, "Please enter a decimal value between 0.5 and 5.");
+            this.rectangleRatioTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.RectangleRatioTextBox_Validating);
             // 
             // rectangleRatioLabel
             // 
             this.rectangleRatioLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rectangleRatioLabel.AutoSize = true;
-            this.rectangleRatioLabel.Location = new System.Drawing.Point(22, 73);
+            this.rectangleRatioLabel.Location = new System.Drawing.Point(29, 90);
+            this.rectangleRatioLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.rectangleRatioLabel.Name = "rectangleRatioLabel";
-            this.rectangleRatioLabel.Size = new System.Drawing.Size(84, 13);
+            this.rectangleRatioLabel.Size = new System.Drawing.Size(109, 17);
             this.rectangleRatioLabel.TabIndex = 5;
             this.rectangleRatioLabel.Text = "Rectangle Ratio";
             // 
             // rectangleHeightTextBox
             // 
             this.rectangleHeightTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rectangleHeightTextBox.Location = new System.Drawing.Point(130, 26);
+            this.preferencesPanelHelpProvider.SetHelpString(this.rectangleHeightTextBox, "Please enter an integer between 50 and 1000.");
+            this.rectangleHeightTextBox.Location = new System.Drawing.Point(173, 32);
+            this.rectangleHeightTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rectangleHeightTextBox.Name = "rectangleHeightTextBox";
-            this.rectangleHeightTextBox.Size = new System.Drawing.Size(100, 20);
+            this.preferencesPanelHelpProvider.SetShowHelp(this.rectangleHeightTextBox, true);
+            this.rectangleHeightTextBox.Size = new System.Drawing.Size(132, 22);
             this.rectangleHeightTextBox.TabIndex = 4;
+            this.preferencesPanelToolTip.SetToolTip(this.rectangleHeightTextBox, "Please enter an integer between 50 and 1000.");
+            this.rectangleHeightTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.RectangleHeightTextBox_Validating);
             // 
             // RectangleHeighLabel
             // 
             this.RectangleHeighLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.RectangleHeighLabel.AutoSize = true;
-            this.RectangleHeighLabel.Location = new System.Drawing.Point(22, 29);
+            this.RectangleHeighLabel.Location = new System.Drawing.Point(29, 36);
+            this.RectangleHeighLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.RectangleHeighLabel.Name = "RectangleHeighLabel";
-            this.RectangleHeighLabel.Size = new System.Drawing.Size(90, 13);
+            this.RectangleHeighLabel.Size = new System.Drawing.Size(117, 17);
             this.RectangleHeighLabel.TabIndex = 0;
             this.RectangleHeighLabel.Text = "Rectangle Height";
             // 
@@ -168,18 +202,25 @@
             // 
             this.PreferencesErrorProvider.ContainerControl = this;
             // 
+            // preferencesInfoErrorProvider
+            // 
+            this.preferencesInfoErrorProvider.ContainerControl = this;
+            this.preferencesInfoErrorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("preferencesInfoErrorProvider.Icon")));
+            // 
             // PreferencesPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.preferencePanel);
-            this.MaximumSize = new System.Drawing.Size(259, 250);
-            this.MinimumSize = new System.Drawing.Size(259, 250);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(345, 308);
+            this.MinimumSize = new System.Drawing.Size(345, 308);
             this.Name = "PreferencesPanel";
-            this.Size = new System.Drawing.Size(259, 250);
+            this.Size = new System.Drawing.Size(345, 308);
             this.preferencePanel.ResumeLayout(false);
             this.preferencePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PreferencesErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.preferencesInfoErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -199,5 +240,8 @@
         private System.Windows.Forms.TextBox rectangleHeightTextBox;
         private System.Windows.Forms.Label RectangleHeighLabel;
         private System.Windows.Forms.ErrorProvider PreferencesErrorProvider;
+        private System.Windows.Forms.ToolTip preferencesPanelToolTip;
+        private System.Windows.Forms.HelpProvider preferencesPanelHelpProvider;
+        private System.Windows.Forms.ErrorProvider preferencesInfoErrorProvider;
     }
 }

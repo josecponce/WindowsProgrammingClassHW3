@@ -9,11 +9,15 @@ namespace Homework3 {
     public class PreferencesDialogPreferenceProvider : IPreferenceProvider {
         public event EventHandler NewPreferences;
         public AppPreferences Preferences { get; set; }
+        private PreferencesDialog dialog;
 
         public void retrievePreferences(Form owner, AppPreferences current,
             bool blocking) {
-            PreferencesDialog dialog = new PreferencesDialog(current);
-            
+            var newDialog = PreferencesDialog.GetDialog(current);
+            if (newDialog == dialog) {
+                return;//do not open another dialog
+            }
+            dialog = newDialog;
             dialog.Apply += Dialog_Apply;
             if (blocking) {
                 DialogResult result = dialog.ShowDialog(owner);

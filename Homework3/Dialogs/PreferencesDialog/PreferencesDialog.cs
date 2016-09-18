@@ -11,12 +11,19 @@ using System.Windows.Forms;
 
 namespace Homework3 {
     public partial class PreferencesDialog : DialogBase {
-        private PreferencesPanel prefsPanel;
+        private static PreferencesDialog instance;        
 
+        private PreferencesPanel prefsPanel;
         public event EventHandler Apply;
         public AppPreferences Preferences => prefsPanel.Preferences;
 
-        public PreferencesDialog(AppPreferences Preferences) : base(){
+        public static PreferencesDialog GetDialog(AppPreferences preferences) {
+            if (instance == null) {
+                instance = new PreferencesDialog(preferences);
+            }
+            return instance;
+        }
+        private PreferencesDialog(AppPreferences Preferences) : base(){
             InitializeComponent();
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             prefsPanel = new PreferencesPanel(Preferences);                        
@@ -63,6 +70,10 @@ namespace Homework3 {
             if (Modal) {
                 prefsPanel.Apply.Visible = false;
             }
+        }
+
+        private void PreferencesDialog_FormClosed(object sender, FormClosedEventArgs e) {
+            instance = null;
         }
     }
 }

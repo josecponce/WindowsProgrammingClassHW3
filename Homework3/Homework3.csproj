@@ -74,6 +74,7 @@
     <Compile Include="Dialogs\OathDialog\OathDialog.Designer.cs">
       <DependentUpon>OathDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\PreferencesDialog\PreferencesValidator.cs" />
     <Compile Include="Domain\AppPreferences.cs" />
     <Compile Include="Forms\EllipticForm.cs">
       <SubType>Form</SubType>

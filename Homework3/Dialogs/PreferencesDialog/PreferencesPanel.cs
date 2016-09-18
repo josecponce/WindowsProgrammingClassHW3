@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Homework3.Dialogs.PreferencesDialog;
 
 namespace Homework3 {
     public partial class PreferencesPanel : UserControl {
@@ -26,74 +27,76 @@ namespace Homework3 {
         public PreferencesPanel(AppPreferences Preferences) {
             InitializeComponent();
 
+            setErrorProviderHelp();
             rectangleHeightTextBox.Text = Preferences.RectangleHeight.ToString();
             rectangleRatioTextBox.Text = Preferences.RectangeRatio.ToString();
             ellipseWidthTextBox.Text = Preferences.EllipseWidth.ToString();
             ellipseRatioTextBox.Text = Preferences.EllipseRatio.ToString();
+        }
 
-            rectangleHeightTextBox.Validating += RectangleHeightTextBox_Validating;
-            rectangleRatioTextBox.Validating += RectangleRatioTextBox_Validating;
-            ellipseWidthTextBox.Validating += EllipseWidthTextBox_Validating;
-            ellipseRatioTextBox.Validating += EllipseRatioTextBox_Validating;
+        private void setErrorProviderHelp() {
+            foreach (Control control in this.Controls) {
+                TextBox box = control as TextBox;
+                if (box != null) {
+                    preferencesInfoErrorProvider.SetError(control,
+                        preferencesPanelToolTip.GetToolTip(control));
+                }
+            }
         }
 
         private void EllipseRatioTextBox_Validating(object sender, CancelEventArgs e) {
-            float ratio;            
-            if (!float.TryParse(ellipseRatioTextBox.Text, out ratio)) {
+            if(PreferencesValidator.ValidateFloat(PreferencesErrorProvider,
+                ellipseRatioTextBox, "The ratio is a floating type number.")
+                || PreferencesValidator.ValidateFloatRange(PreferencesErrorProvider,
+                ellipseRatioTextBox, "The ratio is supposed to be between 0.5 and 5.",
+                0.5f, 5)) {
                 e.Cancel = true;
-                PreferencesErrorProvider.SetError(ellipseRatioTextBox,
-                    "The ratio is a floating type number.");
-                return;
-            }
-            if (ratio < 0.5 || ratio > 5) {
-                e.Cancel = true;
-                PreferencesErrorProvider.SetError(ellipseRatioTextBox,
-                    "The ratio is supposed to be between 0.5 and 5.");
+                preferencesInfoErrorProvider.SetError(ellipseRatioTextBox, null);
+            }else {
+                preferencesInfoErrorProvider.SetError(ellipseRatioTextBox,
+                    preferencesPanelToolTip.GetToolTip(ellipseRatioTextBox));
             }
         }
 
         private void EllipseWidthTextBox_Validating(object sender, CancelEventArgs e) {
-            int width;
-            if (!int.TryParse(ellipseWidthTextBox.Text, out width)) {
+            if (PreferencesValidator.ValidateInt(PreferencesErrorProvider,
+                ellipseWidthTextBox, "The width is supposed to be an integer.")
+                || PreferencesValidator.ValidateIntRange(PreferencesErrorProvider,
+                ellipseWidthTextBox, "The width is supposed to be a value between 50 and 1000.",
+                50, 1000)) {
                 e.Cancel = true;
-                PreferencesErrorProvider.SetError(ellipseWidthTextBox,
-                    "The width is supposed to be an integer.");
-                return;
-            }
-            if (width < 50 || width > 1000) {
-                e.Cancel = true;
-                PreferencesErrorProvider.SetError(ellipseWidthTextBox,
-                    "The width is supposed to be a value between 50 and 1000.");
+                preferencesInfoErrorProvider.SetError(ellipseWidthTextBox, null);
+            } else {
+                preferencesInfoErrorProvider.SetError(ellipseWidthTextBox,
+                    preferencesPanelToolTip.GetToolTip(ellipseWidthTextBox));
             }
         }
 
         private void RectangleRatioTextBox_Validating(object sender, CancelEventArgs e) {
-            float ratio;
-            if (!float.TryParse(rectangleRatioTextBox.Text, out ratio)) {
+            if (PreferencesValidator.ValidateFloat(PreferencesErrorProvider,
+                rectangleRatioTextBox, "The ratio is a floating type number.")
+                || PreferencesValidator.ValidateFloatRange(PreferencesErrorProvider,
+                rectangleRatioTextBox, "The ratio is supposed to be between 0.5 and 5.",
+                0.5f, 5)) {
                 e.Cancel = true;
-                PreferencesErrorProvider.SetError(rectangleRatioTextBox,
-                    "The ratio is a floating type number.");
-                return;
-            }
-            if (ratio < 0.5 || ratio > 5) {
-                e.Cancel = true;
-                PreferencesErrorProvider.SetError(rectangleRatioTextBox,
-                    "The ratio is supposed to be between 0.5 and 5.");
+                preferencesInfoErrorProvider.SetError(rectangleRatioTextBox, null);
+            } else {
+                preferencesInfoErrorProvider.SetError(rectangleRatioTextBox,
+                    preferencesPanelToolTip.GetToolTip(rectangleRatioTextBox));
             }
         }
 
         private void RectangleHeightTextBox_Validating(object sender, CancelEventArgs e) {
-            int height;
-            if (!int.TryParse(rectangleHeightTextBox.Text, out height)) {
+            if (PreferencesValidator.ValidateInt(PreferencesErrorProvider,
+                rectangleHeightTextBox, "The height is supposed to be an integer.")
+                || PreferencesValidator.ValidateIntRange(PreferencesErrorProvider,
+                rectangleHeightTextBox, "The height is supposed to be a value between 50 and 1000.",
+                50, 1000)) {
                 e.Cancel = true;
-                PreferencesErrorProvider.SetError(rectangleHeightTextBox,
-                    "The height is supposed to be an integer.");
-                return;
-            }
-            if (height < 50 || height > 1000) {
-                e.Cancel = true;
-                PreferencesErrorProvider.SetError(rectangleHeightTextBox,
-                    "The height is supposed to be a value between 50 and 1000.");
+                preferencesInfoErrorProvider.SetError(rectangleHeightTextBox, null);
+            } else {
+                preferencesInfoErrorProvider.SetError(rectangleHeightTextBox,
+                    preferencesPanelToolTip.GetToolTip(rectangleHeightTextBox));
             }
         }
     }

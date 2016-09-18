@@ -28,13 +28,15 @@
             // 
             // PreferencesDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(315, 442);
-            this.MinimumSize = new System.Drawing.Size(300, 450);
+            this.ClientSize = new System.Drawing.Size(420, 544);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MinimumSize = new System.Drawing.Size(394, 543);
             this.Name = "PreferencesDialog";
             this.Text = "PreferencesDialog";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PreferencesDialog_FormClosed);
             this.Load += new System.EventHandler(this.PreferencesDialog_Load);
             this.Resize += new System.EventHandler(this.PreferencesDialog_Resize);
             this.ResumeLayout(false);
