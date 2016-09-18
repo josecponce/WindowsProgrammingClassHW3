@@ -25,73 +25,106 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.baseFormContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileCloseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.preferencesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.preferencesColorsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.baseFormMenu = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baseFormContextMenu.SuspendLayout();
+            this.baseFormMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // baseFormContextMenu
             // 
+            this.baseFormContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.baseFormContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenuItem,
-            this.preferencesMenuItem});
+            this.colorToolStripMenuItem});
             this.baseFormContextMenu.Name = "baseFormContextMenu";
-            this.baseFormContextMenu.Size = new System.Drawing.Size(136, 48);
+            this.baseFormContextMenu.Size = new System.Drawing.Size(182, 58);
             // 
-            // fileMenuItem
+            // baseFormMenu
             // 
-            this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileCloseMenuItem});
-            this.fileMenuItem.Name = "fileMenuItem";
-            this.fileMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.fileMenuItem.Text = "File";
+            this.baseFormMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.baseFormMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.preferencesToolStripMenuItem});
+            this.baseFormMenu.Location = new System.Drawing.Point(0, 0);
+            this.baseFormMenu.Name = "baseFormMenu";
+            this.baseFormMenu.Size = new System.Drawing.Size(379, 28);
+            this.baseFormMenu.TabIndex = 1;
+            this.baseFormMenu.Text = "baseFormMenu";
             // 
-            // fileCloseMenuItem
+            // fileToolStripMenuItem
             // 
-            this.fileCloseMenuItem.Name = "fileCloseMenuItem";
-            this.fileCloseMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.fileCloseMenuItem.Text = "Close";
-            this.fileCloseMenuItem.Click += new System.EventHandler(this.fileCloseMenuItem_Click);
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closeToolStripMenuItem});
+            this.fileToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
             // 
-            // preferencesMenuItem
+            // preferencesToolStripMenuItem
             // 
-            this.preferencesMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.preferencesColorsMenuItem});
-            this.preferencesMenuItem.Name = "preferencesMenuItem";
-            this.preferencesMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.preferencesMenuItem.Text = "Preferences";
+            this.preferencesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.colorsToolStripMenuItem});
+            this.preferencesToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
+            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
-            // preferencesColorsMenuItem
+            // closeToolStripMenuItem
             // 
-            this.preferencesColorsMenuItem.Name = "preferencesColorsMenuItem";
-            this.preferencesColorsMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.preferencesColorsMenuItem.Text = "Colors";
-            this.preferencesColorsMenuItem.Click += new System.EventHandler(this.preferencesColorsMenuItem_Click);
+            this.closeToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.fileCloseMenuItem_Click);
             // 
-            // BaseForm
+            // colorsToolStripMenuItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.colorsToolStripMenuItem.Name = "colorsToolStripMenuItem";
+            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.colorsToolStripMenuItem.Text = "Colors";
+            this.colorsToolStripMenuItem.Click += new System.EventHandler(this.preferencesColorsMenuItem_Click);
+            // 
+            // colorToolStripMenuItem
+            // 
+            this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.colorToolStripMenuItem.Text = "Color";
+            this.colorToolStripMenuItem.Click += new System.EventHandler(this.preferencesColorsMenuItem_Click);
+            // 
+            // FormBase
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(379, 321);
             this.ContextMenuStrip = this.baseFormContextMenu;
-            this.Name = "BaseForm";
+            this.Controls.Add(this.baseFormMenu);
+            this.MainMenuStrip = this.baseFormMenu;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "FormBase";
             this.Text = "BaseForm";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BaseForm_MouseUp);
             this.baseFormContextMenu.ResumeLayout(false);
+            this.baseFormMenu.ResumeLayout(false);
+            this.baseFormMenu.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ContextMenuStrip baseFormContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fileCloseMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem preferencesMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem preferencesColorsMenuItem;
+        private System.Windows.Forms.MenuStrip baseFormMenu;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
     }
 }
