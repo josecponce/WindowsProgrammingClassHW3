@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\OathDialog\OathDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\OathDialog\OathDialog.Designer.cs">
+      <DependentUpon>OathDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\AppPreferences.cs" />
     <Compile Include="Forms\EllipticForm.cs">
       <SubType>Form</SubType>

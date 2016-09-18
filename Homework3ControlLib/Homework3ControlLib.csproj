@@ -90,6 +90,9 @@
     <EmbeddedResource Include="CourseInfo.resx">
       <DependentUpon>CourseInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OathUserControl.resx">
+      <DependentUpon>OathUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
