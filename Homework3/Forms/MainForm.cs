@@ -1,4 +1,6 @@
-﻿using Homework3.Forms;
+﻿using Homework3.Dialogs.AboutDialog;
+using Homework3.Dialogs.OathDialog;
+using Homework3.Forms;
 using Homework3ControlLib;
 using Microsoft.Practices.Unity;
 using System;
@@ -17,6 +19,7 @@ namespace Homework3 {
         private IPreferenceProvider preferenceProvider;
         private AppPreferences preferences;
         private List<FormBase> openChildren = new List<FormBase>();
+        private AboutDialog aboutDialog;
 
         public MainForm() {
             InitializeComponent();
@@ -107,6 +110,31 @@ namespace Homework3 {
             if (result == DialogResult.Cancel) {
                 e.Cancel = true;
             }
-        }        
+        }
+
+        private void oathToolStripMenuItem_Click(object sender, EventArgs e) {
+            using (var dialog = new OathDialog()) {
+                dialog.StartPosition = FormStartPosition.Manual;
+                dialog.Location = new Point(this.Location.X + this.Width,
+                    this.Location.Y);
+                dialog.ShowDialog();
+            }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (aboutDialog != null) {
+                return;
+            }
+            aboutDialog = new AboutDialog();
+            aboutDialog.StartPosition = FormStartPosition.Manual;
+            aboutDialog.Location = new Point(this.Location.X,
+                this.Location.Y + this.Height);
+            aboutDialog.FormClosed += AboutDialog_FormClosed;
+            aboutDialog.Show();
+        }
+
+        private void AboutDialog_FormClosed(object sender, FormClosedEventArgs e) {
+            aboutDialog = null;
+        }
     }
 }

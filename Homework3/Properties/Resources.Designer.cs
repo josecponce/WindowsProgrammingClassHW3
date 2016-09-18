@@ -69,5 +69,15 @@ namespace Homework3.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon initialsicon_0j7_icon {
+            get {
+                object obj = ResourceManager.GetObject("initialsicon_0j7_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }
