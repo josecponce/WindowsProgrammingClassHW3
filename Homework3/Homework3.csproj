@@ -76,17 +76,17 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\PreferencesDialog.cs">
+    <Compile Include="Dialogs\PreferencesDialog\PreferencesDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\PreferencesDialog.Designer.cs">
+    <Compile Include="Dialogs\PreferencesDialog\PreferencesDialog.Designer.cs">
       <DependentUpon>PreferencesDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\PreferencesDialogPreferenceProvider.cs" />
-    <Compile Include="Controls\PreferencesPanel.cs">
+    <Compile Include="Dialogs\PreferencesDialog\PreferencesPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\PreferencesPanel.Designer.cs">
+    <Compile Include="Dialogs\PreferencesDialog\PreferencesPanel.Designer.cs">
       <DependentUpon>PreferencesPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -104,10 +104,10 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\PreferencesDialog.resx">
+    <EmbeddedResource Include="Dialogs\PreferencesDialog\PreferencesDialog.resx">
       <DependentUpon>PreferencesDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\PreferencesPanel.resx">
+    <EmbeddedResource Include="Dialogs\PreferencesDialog\PreferencesPanel.resx">
       <DependentUpon>PreferencesPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
