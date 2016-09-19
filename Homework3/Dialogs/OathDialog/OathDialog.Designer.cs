@@ -35,7 +35,6 @@
             this.MinimumSize = new System.Drawing.Size(296, 343);
             this.Name = "OathDialog";
             this.Text = "OathDialog";
-            this.Load += new System.EventHandler(this.OathDialog_Load);
             this.ResumeLayout(false);
 
         }

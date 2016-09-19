@@ -72,10 +72,9 @@ namespace Homework3 {
             }
         }
         private void closeAllChildrenToolStripMenuItem_Click(object sender, EventArgs e) {
-            foreach (var form in openChildren) {
-                form.Close();
+            while(openChildren.Count > 0) {
+                openChildren[0].Close();
             }
-            openChildren.Clear();
             closeAllChildrenToolStripMenuItem.Visible = false;
         }
 

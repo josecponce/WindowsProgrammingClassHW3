@@ -58,6 +58,9 @@ namespace Homework3 {
         }
 
         private void PreferencesDialog_Resize(object sender, EventArgs e) {
+            if (prefsPanel == null) {
+                return;
+            }
             prefsPanel.Location = new Point(
                 (ContentPanel.Width - prefsPanel.Width)/2,
                 (ContentPanel.Height - prefsPanel.Height) / 2);

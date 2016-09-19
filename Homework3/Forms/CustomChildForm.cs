@@ -31,6 +31,6 @@ namespace Homework3.Forms {
                     rect.Width/2, rect.Height));
                 this.Region = new Region(path);
             }
-        }        
+        }
     }
 }

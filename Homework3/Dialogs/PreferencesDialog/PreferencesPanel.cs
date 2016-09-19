@@ -35,7 +35,8 @@ namespace Homework3 {
         }
 
         private void setErrorProviderHelp() {
-            foreach (Control control in this.Controls) {
+            foreach (Control control in this.Controls
+                .Find("preferencePanel", true).First().Controls) {
                 TextBox box = control as TextBox;
                 if (box != null) {
                     preferencesInfoErrorProvider.SetError(control,
@@ -45,9 +46,9 @@ namespace Homework3 {
         }
 
         private void EllipseRatioTextBox_Validating(object sender, CancelEventArgs e) {
-            if(PreferencesValidator.ValidateFloat(PreferencesErrorProvider,
+            if(!PreferencesValidator.ValidateFloat(PreferencesErrorProvider,
                 ellipseRatioTextBox, "The ratio is a floating type number.")
-                || PreferencesValidator.ValidateFloatRange(PreferencesErrorProvider,
+                || !PreferencesValidator.ValidateFloatRange(PreferencesErrorProvider,
                 ellipseRatioTextBox, "The ratio is supposed to be between 0.5 and 5.",
                 0.5f, 5)) {
                 e.Cancel = true;
@@ -59,9 +60,9 @@ namespace Homework3 {
         }
 
         private void EllipseWidthTextBox_Validating(object sender, CancelEventArgs e) {
-            if (PreferencesValidator.ValidateInt(PreferencesErrorProvider,
+            if (!PreferencesValidator.ValidateInt(PreferencesErrorProvider,
                 ellipseWidthTextBox, "The width is supposed to be an integer.")
-                || PreferencesValidator.ValidateIntRange(PreferencesErrorProvider,
+                || !PreferencesValidator.ValidateIntRange(PreferencesErrorProvider,
                 ellipseWidthTextBox, "The width is supposed to be a value between 50 and 1000.",
                 50, 1000)) {
                 e.Cancel = true;
@@ -73,9 +74,9 @@ namespace Homework3 {
         }
 
         private void RectangleRatioTextBox_Validating(object sender, CancelEventArgs e) {
-            if (PreferencesValidator.ValidateFloat(PreferencesErrorProvider,
+            if (!PreferencesValidator.ValidateFloat(PreferencesErrorProvider,
                 rectangleRatioTextBox, "The ratio is a floating type number.")
-                || PreferencesValidator.ValidateFloatRange(PreferencesErrorProvider,
+                || !PreferencesValidator.ValidateFloatRange(PreferencesErrorProvider,
                 rectangleRatioTextBox, "The ratio is supposed to be between 0.5 and 5.",
                 0.5f, 5)) {
                 e.Cancel = true;
@@ -87,9 +88,9 @@ namespace Homework3 {
         }
 
         private void RectangleHeightTextBox_Validating(object sender, CancelEventArgs e) {
-            if (PreferencesValidator.ValidateInt(PreferencesErrorProvider,
+            if (!PreferencesValidator.ValidateInt(PreferencesErrorProvider,
                 rectangleHeightTextBox, "The height is supposed to be an integer.")
-                || PreferencesValidator.ValidateIntRange(PreferencesErrorProvider,
+                || !PreferencesValidator.ValidateIntRange(PreferencesErrorProvider,
                 rectangleHeightTextBox, "The height is supposed to be a value between 50 and 1000.",
                 50, 1000)) {
                 e.Cancel = true;

@@ -15,13 +15,8 @@ namespace Homework3.Dialogs.OathDialog {
         public OathDialog() {
             InitializeComponent();
             OathControl = new OathUserControl();
+            OathControl.Dock = DockStyle.Fill;
             ContentPanel.Controls.Add(OathControl);
-        }
-
-        private void OathDialog_Load(object sender, EventArgs e) {
-            OathControl.Location = new Point(
-                (ContentPanel.Width - OathControl.Width) / 2,
-                (ContentPanel.Height - OathControl.Height) / 2);
         }
     }
 }
